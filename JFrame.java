@@ -57,6 +57,14 @@ public class JFrame extends javax.swing.JFrame {
 		DefaultTableModel dtm = new DefaultTableModel(biodata.data(), columnNames);
 		table.setModel(dtm);
 		scrollPane.setColumnHeaderView(table);
+		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+		 table.setBounds(10, 0, 457, 103);   
+
+		    JScrollPane jp=new JScrollPane(table);
+		    jp.setBounds(10, 0, 457, 103);
+		    jp.setVisible(true);
+		    add(jp);
+		 getContentPane();
 	}
 
 }
