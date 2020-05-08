@@ -68,11 +68,11 @@ ResultSet rs;
 		try {
 			st = (Statement) con.createStatement();
 			st.executeUpdate("INSERT INTO mahasiswa VALUES"+"("
-														   +"'"+nim+","
-														   +"'"+nama+","
-														   +"'"+jk+","
-														   +"'"+tmp_lahir+","
-														   +"'"+tgl_lahir+","
+														   +"'"+nim+"',"
+														   +"'"+nama+"',"
+														   +"'"+jk+"',"
+														   +"'"+tmp_lahir+"',"
+														   +"'"+tgl_lahir+"',"
 														   +"'"+alamat+"'"
 														   +")");
 		} catch (SQLException e) {
