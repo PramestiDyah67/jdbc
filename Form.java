@@ -62,16 +62,12 @@ public class Form extends Frame implements WindowListener{
 		 if(what.equals("save")) {
 			 nim = cnim.getText();  
 			 nama = cnama.getText();   
-			 jk = cjk1.getSelectedItem().toString();   
-			 alamat = calamat.getText();   
+			 jk = cjk1.getSelectedItem().toString();    
 			 tmp_lahir = ctmp_lahir.getText();   
-			 tgl_lahir = ctgl_lahir.getText();  
-			 System.out.println(nim);       
-			 System.out.println(nama);       
-			 System.out.println(jk);       
-			 System.out.println(alamat);      
-			 System.out.println(tmp_lahir);       
-			 System.out.println(tgl_lahir); 
+			 tgl_lahir = ctgl_lahir.getText();
+			 alamat = calamat.getText();  
+			 DBBiodata biodata = new DBBiodata();
+			 biodata.insertBiodata(nim, nama, jk, tmp_lahir, tgl_lahir, alamat);
 		 }
 		return true; 
 	 }
