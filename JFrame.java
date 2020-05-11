@@ -9,12 +9,16 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class JFrame extends javax.swing.JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
 	DBBiodata biodata; 
+	private final JButton button = new JButton("Update");
 
 	/**
 	 * Launch the application.
@@ -56,15 +60,25 @@ public class JFrame extends javax.swing.JFrame {
 		table = new JTable();
 		DefaultTableModel dtm = new DefaultTableModel(biodata.data(), columnNames);
 		table.setModel(dtm);
+		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);//menginisiasi JScrollPane dan Heading Column
+		table.setBounds(10, 0, 457, 103);  
 		scrollPane.setColumnHeaderView(table);
-		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		 table.setBounds(10, 0, 457, 103);   
-
-		    JScrollPane jp=new JScrollPane(table);
-		    jp.setBounds(10, 0, 457, 103);
-		    jp.setVisible(true);
-		    add(jp);
-		 getContentPane();
+		JScrollPane jp=new JScrollPane(table);
+		jp.setBounds(10, 0, 457, 103);
+		jp.setVisible(true);
+		getContentPane().add(jp);
+		getContentPane();
+		contentPane.add(button, BorderLayout.SOUTH);
+	}
+	public void pickUp (java.awt.event.MouseEvent evt)
+	{
+		int row = table.rowAtPoint(evt.getPoint());
+		String nim = table.getValueAt(row, 1).toString();
+		String nama = table.getValueAt(row, 2).toString();
+		String jk = table.getValueAt(row, 3).toString();
+		String tmp_lahir = table.getValueAt(row, 4).toString();
+		String tgl_lahir = table.getValueAt(row, 5).toString();
+		String alamat = table.getValueAt(row, 5).toString();
 	}
 
 }

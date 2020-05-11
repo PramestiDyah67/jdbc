@@ -12,7 +12,7 @@ import java.awt.TextField;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class Form extends Frame implements WindowListener{
+public class Form_update extends Frame implements WindowListener{
 	 String nim;  
 	 String nama;  
 	 String jk;  
@@ -24,16 +24,17 @@ public class Form extends Frame implements WindowListener{
 	 TextArea calamat;  
 	 Button b;  
 	 
-	 public Form()  {   
+	 public Form_update()  {   
 		 super("Data Diri");   
 		 Panel p = new Panel();   
 		 add(p);   
-		 p.setLayout(new GridLayout(7, 2));     
-		 p.add( new Label("nim"));  
-		 p.add(cnim = new TextField()); 
+		 p.setLayout(new GridLayout(7, 2));   
+		 
+		 p.add(new Label("nim"));  
+		 cnim.setText(nim); 
 		 
 		 p.add( new Label("nama"));   
-		 p.add(cnama = new TextField());  
+		 cnama.setText(nama);  
 		 
 		 p.add( new Label("Jenis Kelamin"));   
 		 cjk1 = new Choice();   
@@ -42,13 +43,13 @@ public class Form extends Frame implements WindowListener{
 		 p.add(cjk1); 
 		 
 		 p.add( new Label("Tempat Lahir"));   
-		 p.add(ctmp_lahir = new TextField()); 
+		 ctmp_lahir.setText(tmp_lahir);
 		 
 		 p.add( new Label("Tanggal Lahir"));   
-		 p.add(ctgl_lahir = new TextField());    
+		 ctgl_lahir.setText(tgl_lahir);   
 		 
 		 p.add( new Label("Alamat"));   
-		 p.add(calamat = new TextArea());      
+		 calamat.setText(alamat);     
 		 
 		 p.add( new Label(""));   
 		 p.add(b=new Button("save"));   
@@ -67,12 +68,12 @@ public class Form extends Frame implements WindowListener{
 			 tgl_lahir = ctgl_lahir.getText();
 			 alamat = calamat.getText();  
 			 DBBiodata biodata = new DBBiodata();//inisiasi instance dari class DBBiodata
-			 biodata.insertBiodata(nim, nama, jk, tmp_lahir, tgl_lahir, alamat);//memanggil method dari super class
+			 biodata.updateBiodata(nim, nama, jk, tmp_lahir, tgl_lahir, alamat);//memanggil method dari super class
 		 }
 		return true; 
 	 }
 	 public static void main(String args[]){   
-		 new Form();  
+		 new Form_update();  
 	 }
 	@Override
 	public void windowActivated(WindowEvent e) {

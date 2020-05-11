@@ -24,8 +24,8 @@ ResultSet rs;
             String user="root";
             String pass="";
             Class.forName("com.mysql.jdbc.Driver");
-            con =(Connection) DriverManager.getConnection(url,user,pass);
-            st = (Statement) con.createStatement();
+            con =(Connection) DriverManager.getConnection(url,user,pass);//koneksi ke database
+            st = (Statement) con.createStatement();//statement untuk eksekusi query
             System.out.println("koneksi berhasil;");
 				Class.forName("com.mysql.jdbc.Driver");
 				 con =(Connection) DriverManager.getConnection(url,user,pass);
@@ -66,7 +66,7 @@ ResultSet rs;
 	public void insertBiodata (String nim, String nama, String jk, String tmp_lahir, String tgl_lahir, String alamat)
 	{
 		try {
-			st = (Statement) con.createStatement();
+			st = (Statement) con.createStatement();//statement untuk mengeksekusi query
 			st.executeUpdate("INSERT INTO mahasiswa VALUES"+"("
 														   +"'"+nim+"',"
 														   +"'"+nama+"',"
@@ -75,6 +75,16 @@ ResultSet rs;
 														   +"'"+tgl_lahir+"',"
 														   +"'"+alamat+"'"
 														   +")");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void updateBiodata (String nim, String nama, String jk, String tmp_lahir, String tgl_lahir, String alamat)
+	{
+		try {
+			st = (Statement) con.createStatement();
+			st.executeUpdate("UPDATE mahasiswa SET nama="+"'"+nama+"', jk='"+jk+"',"+"tmp_lahir='"+tmp_lahir+"',"+"tgl_lahir='"+tgl_lahir+"',"+"alamat='"+alamat+"' WHERE nim='"+nim+"'");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
